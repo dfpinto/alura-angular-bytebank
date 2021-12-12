@@ -16,7 +16,7 @@ export class NovaTransferenciaComponent {
 
   transferir(){
     this.service.adicionar({valor:this.valor, destino:this.destino})
-    this.limpar();
+      .subscribe((resultado) => {console.log(resultado); this.limpar();}, (erro) => console.error(erro));
   }
 
   limpar(){
