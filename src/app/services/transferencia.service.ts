@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Transferencia } from '../models/transferencia.model';
@@ -9,7 +10,7 @@ export class TransferenciaService {
   private listatransferencia:any[];
   private url = "http://localhost:3000/transferencia";
 
-  constructor(private httpClient: HttpClient ) {
+  constructor(private httpClient: HttpClient) {
     this.listatransferencia = [];
   }
 
@@ -25,6 +26,7 @@ export class TransferenciaService {
   adicionar(transferencia:any){
     this.hidratar(transferencia);
     return this.httpClient.post<Transferencia>(this.url, transferencia);
+
   }
 
   hidratar(transferencia:any){
